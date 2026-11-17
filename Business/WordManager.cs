@@ -37,17 +37,12 @@
             return result;
         }
 
-        Task<string> IWordManager.GetInputText(string filePath)
+        public List<string> GetList(string text)
         {
-            throw new NotImplementedException();
+            return text.Split("\n").ToList();
         }
 
-        List<string> IWordManager.GetList(string text)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<string> IWordManager.GetMatchedWords(List<string> SourceList)
+        public List<string> GetMatchedWords(List<string> SourceList)
         {
             throw new NotImplementedException();
         }
