@@ -17,12 +17,7 @@
         {
             string fileText = await _wordManager.GetInputText(_filePath);
 
-            List<string> matchedWords = _wordManager.GetMatchedWords(_wordManager.GetList(fileText));
-
-            foreach (string matchedWord in matchedWords)
-            {
-                Console.WriteLine(matchedWord);
-            }
+            _wordManager.GetMatchedWords(_wordManager.GetList(fileText));
         }
     }
 }

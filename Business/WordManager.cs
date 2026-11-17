@@ -8,8 +8,6 @@
     {
         public bool _success { get; private set; }
 
-        bool IWordManager._success => throw new NotImplementedException();
-
         private readonly IFileManager _fileManager;
 
         public WordManager(IFileManager fileManager)
@@ -39,12 +37,38 @@
 
         public List<string> GetList(string text)
         {
-            return text.Split("\n").ToList();
+            return [.. text.Split("\n")];
         }
 
         public List<string> GetMatchedWords(List<string> SourceList)
         {
-            throw new NotImplementedException();
+            List<string> result = new List<string>();
+
+            try
+            {
+                foreach (string word in SourceList)
+                {
+                    foreach (string wordPart2 in SourceList)
+                    {
+                        string newWord = $"{word}{wordPart2}";
+
+                        if (newWord.Length <= 6 && SourceList.Contains(newWord) && !result.Contains(newWord))
+                        {
+                            result.Add(wordPart2);
+
+                            Console.WriteLine(newWord);
+                        }
+                    }
+                }
+
+                Console.WriteLine($"{result.Count} matched Words");
+            }
+            catch (Exception ex)
+            {
+                result = new List<string>();
+            }
+
+            return result;
         }
     }
 }

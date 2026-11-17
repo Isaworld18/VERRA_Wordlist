@@ -14,6 +14,3 @@ var app = serviceProvider.GetRequiredService<InitApplication>();
 
 await app.Run();
 
-
-//Console.WriteLine("Hello, World!");
-
