@@ -1,6 +1,5 @@
 ﻿namespace VERRA_Wordlist.Business
 {
-    using System.Runtime.CompilerServices;
     using VERRA_Wordlist.Business.Interfaces;
 
     public class InitApplication
@@ -17,6 +16,13 @@
         public async Task Run()
         {
             string fileText = await _wordManager.GetInputText(_filePath);
+
+            List<string> matchedWords = _wordManager.GetMatchedWords(_wordManager.GetList(fileText));
+
+            foreach (string matchedWord in matchedWords)
+            {
+                Console.WriteLine(matchedWord);
+            }
         }
     }
 }
