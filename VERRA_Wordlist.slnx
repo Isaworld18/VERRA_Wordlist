@@ -1,4 +1,3 @@
 <Solution>
   <Project Path="VERRA_Wordlist.csproj" />
-  <Project Path="Wordlist_TEST/Wordlist_TEST.csproj" />
 </Solution>

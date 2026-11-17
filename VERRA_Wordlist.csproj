@@ -11,4 +11,16 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Business\WordManager.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Source\wordlist.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

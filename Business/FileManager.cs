@@ -7,7 +7,7 @@
 
     public class FileManager : IFileManager
     {
-        public bool Success { get; private set; }
+        public bool _success { get; private set; }
 
         public async Task<string> ReadFile(string filePath)
         {
@@ -19,13 +19,13 @@
 
                 resultText = await reader.ReadToEndAsync();
 
-                Success = true;
+                _success = true;
             }
             catch (IOException e)
             {
                 resultText = e.Message;
 
-                Success = false;
+                _success = false;
             }
 
             return resultText;

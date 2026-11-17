@@ -1,38 +1,55 @@
 ﻿namespace VERRA_Wordlist.Business
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
+
     using VERRA_Wordlist.Business.Interfaces;
 
     public class WordManager : IWordManager
     {
-        public bool Success { get; private set; }
+        public bool _success { get; private set; }
 
-        private readonly IFileManager _FileManager;
+        bool IWordManager._success => throw new NotImplementedException();
+
+        private readonly IFileManager _fileManager;
 
         public WordManager(IFileManager fileManager)
         { 
-            _FileManager = fileManager;
+            _fileManager = fileManager;
         }
 
-        public async Task<string> GetWordList(string filePath)
+        public async Task<string> GetInputText(string filePath)
         {
             string result = string.Empty;
 
             try
             {
+                result = await _fileManager.ReadFile(filePath);
 
-                Success = true;
+                _success = _fileManager._success;
             }
             catch (Exception ex)
             {
                 result = ex.Message;
 
-                Success = false;
+                _success = false;
             }
 
             return result;
+        }
+
+        Task<string> IWordManager.GetInputText(string filePath)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<string> IWordManager.GetList(string text)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<string> IWordManager.GetMatchedWords(List<string> SourceList)
+        {
+            throw new NotImplementedException();
         }
     }
 }
