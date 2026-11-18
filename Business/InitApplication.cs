@@ -15,9 +15,16 @@
 
         public async Task Run()
         {
-            string fileText = await _wordManager.GetInputText(_filePath);
+            string inputResult = await _wordManager.GetInputText(_filePath);
 
-            _wordManager.GetMatchedWords(_wordManager.GetList(fileText));
+            if (_wordManager._success)
+            {
+                _wordManager.GetMatchedWords(_wordManager.GetList(inputResult));
+            }
+            else
+            {
+                Console.WriteLine($"No se pudo completar la operacion, {inputResult}");
+            }
         }
     }
 }
