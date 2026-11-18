@@ -1,8 +1,5 @@
 ﻿namespace VERRA_Wordlist.Business
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
     using VERRA_Wordlist.Business.Interfaces;
 
     public class FileManager : IFileManager

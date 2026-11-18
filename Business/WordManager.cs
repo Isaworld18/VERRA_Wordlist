@@ -4,16 +4,11 @@
 
     using VERRA_Wordlist.Business.Interfaces;
 
-    public class WordManager : IWordManager
+    public class WordManager(IFileManager fileManager) : IWordManager
     {
         public bool _success { get; private set; }
 
-        private readonly IFileManager _fileManager;
-
-        public WordManager(IFileManager fileManager)
-        { 
-            _fileManager = fileManager;
-        }
+        private readonly IFileManager _fileManager = fileManager;
 
         public async Task<string> GetInputText(string filePath)
         {
@@ -42,13 +37,13 @@
 
         public List<string> GetMatchedWords(List<string> SourceList)
         {
-            List<string> result = new List<string>();
+            List<string> result = [];
 
             try
             {
                 foreach (string word in SourceList)
                 {
-                    List<string> sourceListPart2 = SourceList.Where(s => s.Length + word.Length <= 6).ToList();
+                    List<string> sourceListPart2 = [.. SourceList.Where(s => s.Length + word.Length <= 6)];
 
                     foreach (string wordPart2 in sourceListPart2)
                     {
@@ -65,9 +60,9 @@
 
                 Console.WriteLine($"{result.Count} matched Words");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                result = new List<string>();
+                result = [];
             }
 
             return result;

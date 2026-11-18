@@ -2,16 +2,11 @@
 {
     using VERRA_Wordlist.Business.Interfaces;
 
-    public class InitApplication
+    public class InitApplication(IWordManager wordManager)
     {
         private readonly string _filePath = "../Source/wordlist.txt";
 
-        private readonly IWordManager _wordManager;
-
-        public InitApplication(IWordManager wordManager)
-        {
-            _wordManager = wordManager;
-        }
+        private readonly IWordManager _wordManager = wordManager;
 
         public async Task Run()
         {
