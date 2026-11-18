@@ -48,7 +48,9 @@
             {
                 foreach (string word in SourceList)
                 {
-                    foreach (string wordPart2 in SourceList)
+                    List<string> sourceListPart2 = SourceList.Where(s => s.Length + word.Length <= 6).ToList();
+
+                    foreach (string wordPart2 in sourceListPart2)
                     {
                         string newWord = $"{word}{wordPart2}";
 
