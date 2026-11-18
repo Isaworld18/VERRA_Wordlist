@@ -12,8 +12,7 @@
 
         public async Task<string> GetInputText(string filePath)
         {
-            string result = string.Empty;
-
+            string result;
             try
             {
                 result = await _fileManager.ReadFile(filePath);
