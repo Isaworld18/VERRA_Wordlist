@@ -4,7 +4,7 @@
 
     public interface IWordManager
     {
-        bool _success { get; }
+        bool Success { get; }
 
         Task<string> GetInputText(string filePath);
 

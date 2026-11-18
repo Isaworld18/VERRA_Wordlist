@@ -2,7 +2,7 @@
 {
     public  interface IFileManager
     {
-        bool _success { get; }
+        bool Success { get; }
 
         Task<string> ReadFile(string filePath);
     }

@@ -6,7 +6,7 @@
 
     public class WordManager(IFileManager fileManager) : IWordManager
     {
-        public bool _success { get; private set; }
+        public bool Success { get; private set; }
 
         private readonly IFileManager _fileManager = fileManager;
 
@@ -17,13 +17,13 @@
             {
                 result = await _fileManager.ReadFile(filePath);
 
-                _success = _fileManager._success;
+                Success = _fileManager.Success;
             }
             catch (Exception ex)
             {
                 result = ex.Message;
 
-                _success = false;
+                Success = false;
             }
 
             return result;

@@ -12,7 +12,7 @@
         {
             string inputResult = await _wordManager.GetInputText(_filePath);
 
-            if (_wordManager._success)
+            if (_wordManager.Success)
             {
                 _wordManager.GetMatchedWords(_wordManager.GetList(inputResult));
             }
